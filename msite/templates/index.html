@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>مدرسه الکترونیکی</title>
+<meta name="keywords" content="مدرسه الکترونیکی" />
+<meta name="description" content="مدرسه الکترونیکی" />
+
+ <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+
+
+<!--<link rel="stylesheet" href="css/reset.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/icons.css" type="text/css" />
+<link rel="stylesheet" href="css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/custombox.css" type="text/css" />
+<script src="js/jquery.min.js"></script>
+
+-->
+
+</head>
+
+<body>
+
+
+ <script src="/static/msiteapp/js/jquery.min.js"></script> 
+
+<div id="topmenu">
+<div class="middle">
+<ul>
+<li><a href="index.html/">صفحه نخست</a></li>
+<li><a href="hosting.html">درباره مدرسه</a></li>
+<li><a href=".html">گروه ها</a></li>
+<li><a href="n.html">امکانات سایت</a></li>
+<li><a href="gn.html">اخبارمدرسه</a></li>
+<li><a href="er/">افتخارات مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+<div class="login"><a id="example1" href="#modal" data-custombox="1382347539"><span class="entypo-user"></span>ورود کاربران</a></div>
+</div>
+</div>
+
+<div id="modal" style="display: none;" class="login-panel">
+      
+	   <div class="modal-example-header">
+           		   <button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+           
+		   <h2>ورود کاربران</h2>
+        </div>
+		
+        <div class="modal-example-body">
+		
+        <form method="post" action="/home/">
+        {% csrf_token %} 
+	   <p>&nbsp;</p>
+        <p style="font-size:18px;font-family: 'yekan';">نام کاربري &nbsp;<input type = "text" name="username"></p>
+		<p>&nbsp;</p>
+        <p style="font-size:18px;font-family: 'yekan';">رمز عبور &nbsp;&nbsp; <input type="password" name="password"></p>
+		<p>&nbsp;</p>
+		
+      <center>
+	   <input type="submit" style="font-size:16px;font-family: 'yekan';" name="submit" value="وارد شوید">
+	   </center>
+
+        </form>
+               		{%if sub %}
+            {%if not entrance %}
+
+                <p style="color: red;font-size:14px;font-family: 'yekan';">شما نام کاربری یا رمز عبور خود را وارد نکرده اید.</p>
+
+            {%endif%}
+
+	        {%if user_id_error%}
+
+		        <p style="color: red;font-size:14px;font-family: 'yekan'; ">این نام کاربری در سیستم وجود ندارد.</p>
+
+	        {%endif%}
+
+	        {%if password_error%}
+
+		        <p style="color: red;font-size:14px;font-family: 'yekan';">رمز عبور اشتباه است.</p>
+	        {%endif%}
+
+        {%endif%}
+		
+        <center>
+
+</center>
+        </div>
+    </div>
+
+<div class="middle">
+<div class="clear"></div>
+
+<div id="logo"></div>
+<div id="phone"><span class="entypo-phone"></span>021 - 88221982</div>
+
+
+<div class="clear"></div>
+<div class="slideshow nivoSlider theme-bar">
+
+
+<img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
+<img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
+<img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
+<img src="/static/msiteapp/slide/4.jpg" alt="مدرسه" />
+<!-- 
+<img src="slide/1.jpg" alt="مدرسه" />
+<img src="slide/2.jpg" alt="مدرسه" />
+<img src="slide/3.jpg" alt="مدرسه" />
+<img src="slide/4.jpg" alt="مدرسه" />
+-->
+
+</div>
+
+<div class="clear"></div>
+<div id="sidebar">
+
+
+<div class="widget">
+<h2><span class="entypo-layout bluecolor"></span>منوی اصلی</h2>
+
+<ul>
+<li><a href="index.html">صفحه نخست</a></li>
+<li><a href="g.html">درباره مدرسه</a></li>
+<li><a href="r.html">اخبار مدرسه</a></li>
+<li><a href="n.html">گروه ها</a></li>
+<li><a href="n.html">امکانات سایت</a></li>
+<li><a href="o.html">افتخارات مدرسه</a></li>
+<li><a href="terms.html">قوانین و مقررات</a></li>
+<li><a href="user/login.php">ورود کاربران</a></li>
+<li><a href="u.php">گالری</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+
+
+
+
+
+</div>
+
+<div class="content">
+<h2><span class="entypo-newspaper redcolor"></span>سخن نخست</h2>
+
+
+<p>
+<img class="fl fivepx" src="/static/msiteapp/images/ax.png" width="200" alt="ax" />
+
+<!--<img class="fl fivepx" src="images/ax.png" width="200" alt="ax" />-->
+
+در افق چشم انداز سند تحول بنيادين آموزش و پروش، مدرسه جلوه اي است از تحقق مراتب حيات طيبه و جامعه صالح اسلامي، سازماني يادگيرنده، زمينه ساز درك و اصلاح موقعيت توسط دانش آموزان و تكوين و تعالي پيوسته هويت آنان براساس نظام معيار اسلامي در چارچوب فلسفه و رهنامه نظام تعليم و تربيت رسمي عمومي جمهوري اسلامي ايران.
+
+بر آن هستيم تا با ايجاد يك مجموعه هماهنگ و پويا و بكارگيري كادر اجرايي، پرورشي ، آموزشي و پژوهشي فرهيخته و مجرب ، با مدارك تحصيلي مختلف از جمله دكترا و كارشناسي ارشد در راستاي اهداف آموزش و پرورش كشور و ماموريت مركز ملي پرورش استعدادهاي درخشان و دانش پژوهان جوان كوشيده و با الگوسازي چهره هاي شاخص موثر در پيشبرد اهداف علمي ايران اسلامي از جمله شهداي انرژي هسته اي و دانشمند، جهادگران متخصص ، مومن و انقلابي راه را براي تحصيل آينده سازان ميهن اسلاميمان و پرورش نخبگان علمي مذهبي هموار سازيم.
+<br />
+
+دکتر مریم تجلی نیا
+<br />
+
+مدير واحد آموزشي
+
+
+
+</p>
+
+
+<h2><span class="entypo-newspaper redcolor"></span>برنامه هفتگی سال جدید</h2>
+<p>برنامه هفتگي سال تحصيلي با آخرين تغييرات صورت گرفته در تاريخ 14 مهر بر روي سايت قرار گرفت.
+
+اين برنامه شامل تمامي كلاسهاي برگزار شده در هر پايه ، زمان كلاسها و زمان زنگ هاي تفريح مي باشد.
+
+براي توضيحات بيشتر و مشاهده و دريافت فايل PDF برنامه هفتگي به ادامه مطلب برويد.
+
+
+<a class="customlink" href="webee.html">ادامه مطلب...</a>
+</p>
+
+
+<h2><span class="entypo-doc-text redcolor"></span>كسب هشت مدال رنگارنگ المپياد</h2>
+<p>پس از قبولي 136 نفر از دانش آموزان در مرحله اول المپيادهاي كشوري كه خود ركورد بي نظيري به حساب مي آيد (كه به تفكيك در جدول زير آمده است) ، تعداد 8 نفر از دانش آموزان با قبولي در مرحله دوم جواز حضور در مرحله پاياني و كسب مدال را كسب كردند. كه تمامي اين دانش آموزان توانستند مدال هاي رنگارنگي را براي خود و دبيرستان به ارمغان بياورند.
+
+
+<a class="customlink" href="we.html">توضیحات بیشتر...</a>
+</p>
+
+
+
+
+
+
+
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+
+<div class="middle">
+<div class="firstbox">
+<p>تمامی حقوق برای مدرسه محفوظ است.<br/>
+هر گونه کپی برداری از قالب پیگرد دارد.</p>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="index.html">صفحه نخست</a></li>
+<li><a href="ng.html">درباره مدرسه</a></li>
+<li><a href="er.html">اخبار</a></li>
+<li><a href="n.html">ورود کاربران</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="wn.html">گروه ها</a></li>
+<li><a href="ps.html">افتخارات مدرسه</a></li>
+<li><a href="po.html">آدرس</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="user/login.php">ورود کاربران</a></li>
+<li><a href="user/register.php">عضویت در سامانه</a></li>
+<li><a href="terms.html">قوانین مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+</div>
+
+</div>
+ <script type="text/javascript" src="/static/msiteapp/js/jquery.custombox.js"></script>
+    <script type="text/javascript" src="/static/msiteapp/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+	
+	
+	
+    $(window).load(function() {
+        $('.slideshow').nivoSlider();
+    });
+	
+    </script>
+    
+    <script>
+$('#example1').on('click', function () {
+    $.fn.custombox( this, {
+        overlay: true,
+        effect: 'slit'
+    });
+    return false;
+});
+</script>
+
+</body>
+<link rel="canonical" href="http://www...ir" />
+</html>
