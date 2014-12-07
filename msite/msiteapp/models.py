@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 from django.contrib.auth.models import User
 
 
@@ -37,8 +38,9 @@ class Course(models.Model):
 
 
 class EducationReport(models.Model):
-    report_topic = models.CharField(max_length=20)
+    report_topic = models.CharField(max_length=20)  # month of report
     report_date = models.DateField('report published')
+    year = models.IntegerField(default=datetime.now().year)
     course_id = models.ForeignKey(Course)
     base_mark = models.IntegerField(default=20)
 
@@ -55,3 +57,23 @@ class Marks(models.Model):
     def __str__(self):
         return '%s %s' % (str(self.student), str(self.mark_val))
 
+
+class HomeWorks(models.Model):
+    course = models.ForeignKey(Course)
+    topic = models.CharField(max_length=20)
+    date = models.DateField()
+    q_file = models.FileField()
+
+    def __str__(self):
+        return '%s' % (str(self.topic))
+
+
+class HwAnswer(models.Model):
+    homework = models.ForeignKey(HomeWorks)
+    student = models.ForeignKey(Student)
+    answer_file = models.FileField()
+    date = models.DateField()
+    mark = models.IntegerField(default=0)
+
+    def __str__(self):
+        return '%s %s' % (str(self.student), str(self.homework))
