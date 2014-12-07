@@ -40,7 +40,7 @@ class Course(models.Model):
 class EducationReport(models.Model):
     report_topic = models.CharField(max_length=20)  # month of report
     report_date = models.DateField('report published')
-    year = models.IntegerField(default=datetime.now().year)
+    year = models.IntegerField()
     course_id = models.ForeignKey(Course)
     base_mark = models.IntegerField(default=20)
 
