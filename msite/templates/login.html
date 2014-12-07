@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ورود</title>
+<meta name="keywords" content="مدرسه الکترونیکی" />
+<meta name="description" content="مدرسه الکترونیکی" />
+<link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+
+
+
+
+
+</head>
+
+<body>
+
+
+{%if sub %}
+    {%if not entrance %}
+        <p>u haven't enter user or pass</p>
+    {%endif%}
+
+	{%if user_id_error%}
+		<p style="color: red;font-size:30px">no such user id</p>
+	{%endif%}
+
+	{%if password_error%}
+		<p style="color: red;font-size:30px">wrong password</p>
+	{%endif%}
+
+{%endif%}
+
+
+
+<script src="/static/msiteapp/js/jquery.min.js"></script>
+<div class="login"><a id="example1" href="#modal" data-custombox="1382347539">ورود کاربران</a></div>
+</div>
+</div>
+
+<div id="modal" style="display: none;" class="login-panel">
+        <div class="modal-example-header">
+            <button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+            <h3>ورود کاربران</h3>
+        </div>
+        <div class="modal-example-body">
+        <form method="post" action="/login/" ><!--name="frmlogin"-->
+        {% csrf_token %}
+        <p style="font-size:20px;">نام کاربري</p><input type = "text" name="username">
+        <p style=";font-size:20px;">رمز عبور</p><input type="password" name="password">
+        <input type="submit" style="font-size:20px" name="submit" value="ورود">
+        <!--<table cellspacing="0" cellpadding="10" border="0" align="center">
+          <tbody><tr>
+            <td width="150" align="right" class="fieldarea">کد کاربری:</td>
+            <td><input type="text" value="" size="40" name="username"></td>
+          </tr>
+          <tr>
+            <td width="150" align="right" class="fieldarea">رمز عبور:</td>
+            <td><input type="password" value="" size="40" name="password"></td>
+          </tr>-->
+ <!--         <tr>
+            <td width="150" align="right" class="fieldarea"><input type="checkbox" name="rememberme"></td>
+            <td>ذخیره</td>
+          </tr>
+          <tr>
+            <td width="150" align="right" class="fieldarea">&nbsp;</td>-->
+           <!-- <td><input type="submit" value="وارد شوید"></td>
+          </tr>
+        </tbody></table>--></form>
+            <p>
+            <a href="user/pwreset.php">فراموشی رمز عبور</a>
+            <br />
+            <a href="user/register.php">عضویت در سایت</a>
+            </p>
+        </div>
+    </div>
+
+
+
+
+	<script src="/static/msiteapp/js/jquery.custombox.js"></script>
+    <script type="text/javascript" src="/static/msiteapp/js/jquery.nivo.slider.js"></script>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('.slideshow').nivoSlider();
+    });
+	
+    </script>
+    
+    <script>
+$('#example1').on('click', function () {
+    $.fn.custombox( this, {
+        overlay: true,
+        effect: 'slit'
+    });
+    return false;
+});
+</script>
+
+</body>
+<link rel="canonical" href="http://www...ir" />
+</html>
