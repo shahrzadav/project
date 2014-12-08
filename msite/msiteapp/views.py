@@ -466,3 +466,9 @@ def report_st_khordad(request, a):
     context = RequestContext(request, {'xx': st_list})
     return HttpResponse(template.render(context))
 
+
+def st_courses(request, a):
+    template = loader.get_template('stu-lessons.html')
+    context = RequestContext(request, {'a': a})
+    return HttpResponse(template.render(context))
+
