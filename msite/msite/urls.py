@@ -9,7 +9,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^home/', login_user),
-    url(r'^student/(?P<a>.+)/', report_st),
+    url(r'^student/(?P<a>.+)/karname/', report_st),
     url(r'^logout/', user_logout),
 
 
