@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form method="get" action = "/home/">
+<center>
+<div>
+<table border="1" style="width:50%" dir="rtl" >
+<tr>
+    <th>نام درس</th>
+    <th>نمره پایه</th>
+    <th>نمره</th>
+    <th>توضیحات</th>
+</tr>
+
+    <br>
+
+{% for y in xx %}
+
+        <SCRIPT Language="JavaScript">
+            document.write('<tr>')
+        </SCRIPT>
+
+            {% for x in y %}
+
+                <SCRIPT Language="JavaScript">
+                    document.write('<td>')
+                </SCRIPT>
+                {{ x }}
+                <SCRIPT Language="JavaScript">
+                    document.write('</td>')
+                </SCRIPT>
+
+            {% endfor %}
+
+        <SCRIPT Language="JavaScript">
+            document.write('</tr>')
+        </SCRIPT>
+
+{% endfor %}
+
+</table>
+<p></p>
+
+</div>
+</center>
+</form>
+</body>
+</html>
