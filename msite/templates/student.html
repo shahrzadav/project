@@ -5,22 +5,22 @@
 <title>صفحه دانش آموز</title>
 <meta name="keywords" content="مدرسه الکترونیکی" />
 <meta name="description" content="مدرسه الکترونیکی" />
+
 <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="/static/msiteapp/js/jquery.min.js"></script>
+
 </head>
 
 <body>
-
-<script src="/static/msiteapp/js/jquery.min.js"></script>
-
 <div id="topmenu">
 <div class="middle">
 <ul>
-<li><a href="index.html/">صفحه نخست</a></li>
+<li><a href="index.html">صفحه نخست</a></li>
 <li><a href="hosting.html">درباره مدرسه</a></li>
 <li><a href=".html">گروه ها</a></li>
 <li><a href="n.html">امکانات سایت</a></li>
@@ -31,84 +31,109 @@
 <p style="color: red;font-size:16px;font-family: 'yekan';float:right;padding:7px;margin-right: 5px">شما در صفحه شخصیتان هستید. {{ a }}</p>
 </div>
 
-<!--<a href="/logout/">Logout</a><br />-->
 </div>
-
 <div class="middle">
 <div class="clear"></div>
 
 <div id="logo"></div>
-<div id="phone"><span class="entypo-phone"></span>021 - 88221982</div>
 
-
+<!----------------------------------------------------------------------------------------------------------->
 <div class="clear"></div>
 <div class="slideshow nivoSlider theme-bar">
 <img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
 <img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
 <img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
+<img src="/static/msiteapp/slide/4.jpg" alt="مدرسه" />
 </div>
-
+<!-------------------------------------------------------------------------------------------------------------->
 <div class="clear"></div>
 <div id="sidebar">
 
 
 <div class="widget">
-<h2><span class="entypo-layout bluecolor"></span>منوی دانش آموز</h2>
 
-<ul>
-<li><a href="index.html">صفحه نخست</a></li>
-<li><a href="g.html">دروس</a></li>
-<li><a href="r.html">مسایقات</a></li>
-<li><a href="n.html">آزمون ها</a></li>
-<li><a href="/logout/">خروج</a></li>
+<h2><span class="entypo-layout bluecolor"></span>&nbsp;منوی دانش آموز</h2>
 
 
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+<div id="vertical-nav">
+
+<ul class="vertical-top-level">
+
+<li>
+<a href="student.html">صفحه دانش آموز</a>
+
+</li>
+
+<li>
+<a href="stu-lessons.html">دروس &raquo;</a>
+  <ul class="vertical-sub-level">
+    <li><a href="stu-lessons.html">ریاضی</a></li>
+    <li><a href="stu-lessons.html">فیزیک</a></li>
+	<li><a href="stu-lessons.html">شیمی</a></li>
+	<li><a href="stu-lessons.html">ادبیات</a></li>
+	<li><a href="stu-lessons.html">زبان</a></li>
+	<li><a href="stu-lessons.html">عربی</a></li>
+   
+     
+    
+  </ul>
+</li>
+<li>
+<a href="stu-MonthMark.html">نمرات ماهانه</a>
+
+
+</li>
+<li>
+<a href="#">مسابقات </a>
+
+
+</li>
+
+<li><a href="#">آزمون ها</a></li>
+<li><a href="#">خروج</a></li>
 </ul>
 </div>
-
-
 </div>
-
+</div>
+<!----------------------------------------------------------------------------------------------------------------->
 <div class="content">
-
 
 <h2><span class="entypo-plus-squared redcolor"></span> امکانات</h2>
 
 <div class="feat">
-<img alt="transfer" src="/static/msiteapp/images/refresh.png" />
-<h4>دروس</h4>
+<img alt="lessons" src="/static/msiteapp/images/refresh.png" />
+<a  href="stu-lessons.html"><h4>دروس</h4>
 <p>برای مشاهده دروس از این قسمت وارد شوید</p>
 </div>
 
 <div class="feat">
-<img alt="support" src="/static/msiteapp/images/monitor.png" />
-<h4>مسابقات</h4>
+<img alt="mosabeghat" src="/static/msiteapp/images/monitor.png" />
+<a  href="#"><h4>مسابقات</h4>
 <p>برای مشاهده مسابقات از این قسمت وارد شوید</p>
 </div>
 
 <div class="feat">
-<img alt="directadmin" src="/static/msiteapp/images/clock.png" />
-<h4>آزمون ها</h4>
+<img alt="exams" src="/static/msiteapp/images/clock.png" />
+<a  href="#"><h4>آزمون ها</h4>
 <p>برای شرکت در آزمون ها از این قسمت وارد شوید</p>
 </div>
-<!--
-<div>
-<a href="/student/{{ a }}/karname">nomarat mahane</a>
-</div>
--->
+
 <div class="feat">
 <img alt="نمرات ماهانه" src="/static/msiteapp/images/refresh.png" />
 <a  href="/student/{{ a }}/karname"><h4>نمرات ماهانه</h4>
-<p>برای مشاهده نمرات ماهانه از این قسمت وارد شوید</p>
+<p>براي مشاهده نمرات ماهانه از اين قسمت وارد شويد</p>
 </div>
 
+
 </div>
-
-
 
 
 <div class="clear"></div>
 </div>
+
+<!---------------------------------------------------------------------------------------------------------------->
 <div class="clear"></div>
 <div id="footer">
 
@@ -144,11 +169,7 @@
 </ul>
 </div>
 
-<div class="footerbox">
 
-
-
-</div>
 
 </div>
 

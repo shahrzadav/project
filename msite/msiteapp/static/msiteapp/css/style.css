@@ -102,7 +102,7 @@ a {
 #topmenu .login{float:left;font-family:yekan,tahoma;color:#fff;background:#1083b3;padding:9.5px;margin-right:5px;font-size:15px;}
 #topmenu .login a{color:#fff;}
 #topmenu .login span{font-size:17px;}
-#topmenu ul li{list-style:none;float:right;padding:11px;transition: all 0.5s ease;}
+#topmenu ul li{list-style:none;float:right;padding:8px;transition: all 0.5s ease;}
 #topmenu ul li a{color:#fff;font-family:yekan;font-size:15px;}
 #topmenu ul li:hover,#topmenu ul li.active{background:#eb3838;}
 
@@ -307,6 +307,85 @@ a {
 	height:20px;
 }
 
+/* -------------------------------------------------------------------------------------------------------
+*/
+#vertical-nav {
+    width:200px;
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:12px;
+  /*  float:right;*/
+    direction:rtl;
+    text-align:right;
+    z-index:1000;
+}
+#vertical-nav ul {
+    margin:0px;
+    padding:0px;
+    *border-top:1px #333 solid;/*IE 7*/
+}
+ul.vertical-top-level {
+
+    background-color:#fff;
+}
+#vertical-nav li {
+    list-style:disc;
+}
+ul.vertical-top-level li {
+
+    border-bottom:#fff solid 1px;
+}
+#vertical-nav a {
+
+    color:##7a7a7a;
+    display:block;    
+    height:25px;
+    line-height:25px;
+    text-decoration:none;
+    width:100%;    
+}
+#vertical-nav a:hover{
+    _background-color:#39C;/*IE 6*/
+    _display:block;/*IE 6*/     
+}
+#vertical-nav li:hover {
+    background-color:#39C;
+    position:relative;
+}
+ul.vertical-sub-level {
+    display:none; 
+}
+li:hover .vertical-sub-level {
+    background-color:#666;
+    border:#fff solid 1px;
+    display:block;
+    position:absolute;
+    right:150px;
+    top:0px;
+}
+ul.vertical-sub-level li {
+
+    border:none;
+    float:right;
+    width:150px;
+    *background-color:#666;/*IE 7*/    
+}
+#vertical-nav .vertical-sub-level {
+    background-color:#fff;
+}
+#vertical-nav .vertical-sub-level .vertical-sub-level {
+    background-color:#fff;
+}
+li:hover .vertical-sub-level .vertical-sub-level {
+    display:none;
+}
+.vertical-sub-level li:hover .vertical-sub-level {
+    display:block;
+    *left:0px;/*IE 7*/
+}
+/*------------------------------------------------------------------------------------------------------------
+*/
+
+
 #sidebar{
 	float:right;
 	width:270px;
@@ -349,6 +428,7 @@ a {
 .widget ul li:hover{padding-right:15px;color:#eb3838;}
 
 .widget h2 span{margin-left:10px;font-size:25px;}
+
 
 .content{
 	float:left;
@@ -498,7 +578,7 @@ textarea,
 table
 
 {
-  width:100%;
+  width:70%;
   border-collapse:collapse;
   border-spacing:0;
   position:relative;
@@ -516,13 +596,13 @@ th
 
 }
 
-.ordertable tr{height:30px;}
+.ordertable tr{height:50px;}
 
 th.nobg
 
 {
 
-	border:0;
+	border:;
 
 	width:150px;
 
@@ -567,7 +647,7 @@ td.big
 
 {
 
-  width:150px;
+  width:100px;
 
   text-align:right;
 
