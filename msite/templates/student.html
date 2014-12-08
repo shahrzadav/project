@@ -31,7 +31,7 @@
 
 </div>
 <p style="color: red; font-size: 30px">you are in yourpage dear {{ a }}</p>
-<a href="/logout/">Logout</a><br />
+<!--<a href="/logout/">Logout</a><br />-->
 </div>
 
 <div class="middle">
@@ -60,7 +60,7 @@
 <li><a href="g.html">دروس</a></li>
 <li><a href="r.html">مسایقات</a></li>
 <li><a href="n.html">آزمون ها</a></li>
-<li><a href="/home/">خروج</a></li>
+<li><a href="/logout/">خروج</a></li>
 
 
 </ul>
@@ -91,11 +91,16 @@
 <h4>آزمون ها</h4>
 <p>برای شرکت در آزمون ها از این قسمت وارد شوید</p>
 </div>
-
+<!--
 <div>
 <a href="/student/{{ a }}/karname">nomarat mahane</a>
 </div>
-
+-->
+<div class="feat">
+<img alt="نمرات ماهانه" src="/static/msiteapp/images/refresh.png" />
+<a  href="/student/{{ a }}/karname"><h4>نمرات ماهانه</h4>
+<p>برای مشاهده نمرات ماهانه از این قسمت وارد شوید</p>
+</div>
 
 </div>
 
