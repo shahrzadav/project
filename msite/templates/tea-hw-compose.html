@@ -2,21 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>صفحه دبیر</title>
+<title>ثبت تکلیف جدید</title>
 <meta name="keywords" content="مدرسه الکترونیکی" />
 <meta name="description" content="مدرسه الکترونیکی" />
 <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
-<link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp//css/style.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="/static/msiteapp/js/jquery.min.js"></script>
 </head>
 
 <body>
-
-<script src="/static/msiteapp/js/jquery.min.js"></script>
-
 <div id="topmenu">
 <div class="middle">
 <ul>
@@ -28,23 +26,15 @@
 <li><a href="er/">افتخارات مدرسه</a></li>
 <li><a href="contact.html">تماس با ما</a></li>
 </ul>
-<p style="color: red;font-size:16px;font-family: 'yekan';float:right;padding:7px;margin-right: 5px">شما در صفحه شخصیتان هستید. {{ a }}</p>
 
+</div>
+
+</div>
 
 <div class="middle">
 <div class="clear"></div>
 
 <div id="logo"></div>
-<div id="phone"><span class="entypo-phone"></span>021 - 88221982</div>
-
-
-<div class="clear"></div>
-<div class="slideshow nivoSlider theme-bar">
-<img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
-</div>
-
 <div class="clear"></div>
 <div id="sidebar">
 
@@ -52,14 +42,42 @@
 <div class="widget">
 <h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
 
-<ul>
-<li><a href="index.html">صفحه نخست</a></li>
-<li><a href="g.html">ارائه گزارش</a></li>
-<li><a href="r.html">پیام های والدین</a></li>
-<li><a href="n.html">مدیریت تکالیف</a></li>
-<li><a href="/logout/">خروج</a></li>
+<!----------------------------------------------------------------------------------------------------------------------------->
+<!-- بلاک اصلی -->
+<div id="vertical-nav">
+<!-- تگ ul سطح بالا -->
+<ul class="vertical-top-level">
+<!-- منوی سطح بالا -->
+<li>
+<a href="teacher.html">صفحه دبیر</a>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">ارائه گزارش &raquo;</a>
+  <ul class="vertical-sub-level">
+    <li><a href="#">گزارش کلاس 1</a></li>
+    <li><a href="#">گزارش کلاس 2</a></li>
+	<li><a href="#">گزارش کلاس 3</a></li>
+  </ul>
+</li>
 
+<li>
+<a href="#">پیام های والدین </a>
+</li>
+
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
+  </ul>
+</li>
+<li><a href="#">خروج</a></li>
 </ul>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+
 </div>
 
 
@@ -68,27 +86,28 @@
 <div class="content">
 
 
-<h2><span class="entypo-plus-squared redcolor"></span> امکانات</h2>
+<h2><span class="entypo-plus-squared redcolor"></span> آپلود تکلیف</h2>
 
-<div class="feat">
-<img alt="transfer" src="/static/msiteapp/images/refresh.png" />
-<a href="/teacher/{{a}}/gozaresh/"<h4>ارائه گزارش</h4>
-<p>برای ارائه گزارش از این قسمت وارد شوید</p>
-</div>
+<p>
+<br></br>
+</p>
 
-<div class="feat">
-<img alt="support" src="/static/msiteapp/images/monitor.png" />
-<h4>پیام های والدین</h4>
-<p>برای مشاهده پیام های والدین از این قسمت وارد شوید</p>
-</div>
-
-<div class="feat">
-<img alt="directadmin" src="/static/msiteapp/images/clock.png" />
-<h4>مدیریت تکالیف</h4>
-<p>برای مدیریت تکالیف از این قسمت وارد شوید</p>
-</div>
+<table class="ordertable" cellspacing="0" cellpadding="0">
 
 
+<tbody>
+<tr>
+<td class="big"><h3>آپلود تکلیف جدید</h3><input type = "text" name="upload"> {{ form }}</td>
+</tr>
+
+<tr>
+
+
+<td><input type="submit" style="font-size:20px" name="submit" value="ثبت تکلیف جدید"></td>
+</tr>
+
+</tbody>
+</table>
 
 </div>
 
@@ -132,11 +151,7 @@
 </ul>
 </div>
 
-<div class="footerbox">
 
-
-
-</div>
 
 </div>
 

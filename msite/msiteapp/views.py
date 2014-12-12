@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from msiteapp.models import User, Class, Student, Parent, Course, EducationReport, Marks
+from msiteapp.models import User, Class, Student, Parent, Course, EducationReport, Marks, HomeWorks
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from msite.forms import ModelFormWithFileField
+from msite import forms
 from django.core.context_processors import csrf
 from django.template.loader import get_template
 from django.template import Context
@@ -10,6 +12,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from datetime import date
 
 ################################################ login & logout #############################################################
 
@@ -466,9 +469,152 @@ def report_st_khordad(request, a):
     context = RequestContext(request, {'xx': st_list})
     return HttpResponse(template.render(context))
 
+#########################################moshahede va download takalif #############################################
+
 
 def st_courses(request, a):
-    template = loader.get_template('stu-lessons.html')
-    context = RequestContext(request, {'a': a})
+    stu_user = User.objects.get(username=a)
+    stu = Student.objects.get(student=stu_user)
+    class_no = stu.class_no
+    courses = Course.objects.filter(class_no=class_no)
+
+
+    template = loader.get_template('stu-lessons-list.html')
+    context = RequestContext(request, {'a': a, 'st_course_list': courses})
     return HttpResponse(template.render(context))
 
+
+###########################################vared kardane nomarat tavasote teacher #################################
+
+
+def which_class(request,a):
+
+    return render_to_response('tea-mainreport.html', {'a': a})
+
+
+def get_form(request):
+    class_number = request.GET['class_no']
+
+    rep_month = request.GET['report_month']
+    sub = request.GET['subject']
+    base_mark = request.GET['max_mark']
+    year = request.GET['year']
+    student_un = Student.objects.order_by('class_no')
+
+    #get id of the course that is reported
+    course_obj = Course.objects.get(class_no=int(class_number), subject=sub)
+
+    #create a education report in db for current report
+    report_obj = EducationReport(course_id=course_obj,
+                                 report_topic=rep_month,
+                                 report_date=date.today(),
+                                 base_mark=base_mark,
+                                 year=year)
+    report_obj.save()
+    report_id = report_obj.id
+
+    #generate a table with students of that class
+    class_num = []
+    students = []
+    for i in range(len(student_un)):
+        class_num.append(student_un[i].class_no)
+
+        if str(student_un[i].class_no) == str(class_number):
+            name = []
+            user_ob = User.objects.get(username=student_un[i].student)
+            name.append(user_ob.first_name)
+            name.append(user_ob.last_name)
+            name.append(user_ob.username)
+            students.append(name)
+
+    return render_to_response('tea-report.html',
+                              {'class_number': class_number,
+                               'students': students,
+                               'report_id': report_id})
+
+
+def set_marks(request):
+
+    class_no1 = request.GET['class_number']
+    class_no = int(class_no1[:len(class_no1)-1])
+    report_id = int(request.GET['report_id'])
+
+    report_obj = EducationReport.objects.get(id=report_id)
+    students = Student.objects.filter(class_no=class_no)
+
+    for student in students:
+        mark = request.GET[str(student.student)]
+        stu_un = student.student
+        stu_obj = User.objects.get(username=stu_un)
+        new_mark = Marks(report=report_obj, student=stu_obj, mark_val=mark)
+        new_mark.save()
+
+    return render_to_response('tea-mainreport.html')
+#########################################################################shahrzad
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = forms.ModelFormWithFileField(request.FILES)
+        if form.is_valid():
+            # file is saved
+            form.save()
+            return HttpResponseRedirect('/success/url/')
+    else:
+        form = forms.ModelFormWithFileField()
+    return render(request, 'upload.html', {'form': form})
+
+
+def enter_hw_page(request):
+    find = []
+    if 'grade2' in request.POST and request.POST['grade2']:
+        sub = True
+        grade2 = request.POST['grade2']
+        grade3 = request.POST['grade3']
+        find_course = Course.objects.get(subject=grade2, class_no=grade3)
+
+        for i in HomeWorks.objects.filter(course=find_course):
+            find.append(str(i.topic))
+
+        return render_to_response('tea-hw-management.html', {'name': find, 'classnumber': grade3, 'find_course': find_course})
+
+    return render(request, 'tea-class-selection.html')
+
+
+def takliftopic(request):
+    #render_to_response('tea-hw-details.html')
+    #classnumber = request.GET['classnumber']
+    return render(request, 'tea-hw-details.html')
+
+
+def taklifstudent(request, classnumber):
+    #if 'classnumber' in request.GET:
+     #   class_no = request.POST.get['classnumber']
+        find_student = []
+        for i in Student.objects.filter(class_no=int(classnumber)):
+            j = User.objects.get(username=i.student)
+            find_student.append(str(j.first_name))
+
+        return render_to_response('tea-hw-details.html', {'find_student': find_student, 'class_no': classnumber})
+
+    #return render(request, 'tea-hw-management.html')
+
+
+def sabtetaklif(request, find_course):
+    if request.method == 'POST':
+        form = forms.ModelFormWithFileField(request.FILES)
+        if form.is_valid():
+            if 'upload' in request.POST:
+                sub = True
+                upload = request.POST['upload']
+                m = HomeWorks(course=find_course, topic=upload, date='07/08/1393', q_file=form)
+                # file is saved
+                m.save()
+                return HttpResponseRedirect('/takalif/topic/')
+    else:
+        form = forms.ModelFormWithFileField()
+
+    return render(request, "tea-hw-compose.html", {form: 'form'})
+
+
+def sabtetaklifejadid(request):
+    return render(request, 'tea-hw-compose.html')

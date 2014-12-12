@@ -2,10 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>صفحه دانش آموز</title>
+<title>صفحه گزارشات معلم</title>
 <meta name="keywords" content="مدرسه الکترونیکی" />
 <meta name="description" content="مدرسه الکترونیکی" />
-
 <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
 <link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
@@ -13,7 +12,6 @@
 <link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
 <script src="/static/msiteapp/js/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -32,108 +30,130 @@
 </div>
 
 </div>
+
 <div class="middle">
 <div class="clear"></div>
 
 <div id="logo"></div>
 
-<!----------------------------------------------------------------------------------------------------------->
-<div class="clear"></div>
-<div class="slideshow nivoSlider theme-bar">
-<img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/4.jpg" alt="مدرسه" />
-</div>
-<!-------------------------------------------------------------------------------------------------------------->
+
+
 <div class="clear"></div>
 <div id="sidebar">
-
-
 <div class="widget">
+<h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
 
-<h2><span class="entypo-layout bluecolor"></span>&nbsp;منوی دانش آموز</h2>
-
-
-<!----------------------------------------------------------------------------------------------------------------------------->
-
+<!------------------------------------------------------------------------------------------------------------------>
+<!-- بلاک اصلی -->
 <div id="vertical-nav">
-
+<!-- تگ ul سطح بالا -->
 <ul class="vertical-top-level">
-
+<!-- منوی سطح بالا -->
 <li>
-<a href="student.html">صفحه دانش آموز</a>
-
+<a href="teacher.html">صفحه دبیر</a>
 </li>
-
+<!-- منوی سطح بالا -->
 <li>
-<a href="stu-lessons.html">دروس &raquo;</a>
-  <ul class="vertical-sub-level">
-    <li><a href="stu-lessons.html">ریاضی</a></li>
-    <li><a href="stu-lessons.html">فیزیک</a></li>
-	<li><a href="stu-lessons.html">شیمی</a></li>
-	<li><a href="stu-lessons.html">ادبیات</a></li>
-	<li><a href="stu-lessons.html">زبان</a></li>
-	<li><a href="stu-lessons.html">عربی</a></li>
-   
-     
-    
+<a href="tea-mainreport.html">ارائه گزارش </a>
+ 
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">پیام های والدین</a>
+    </li>
+ 
+<!-- منوی سطح بالا -->
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
   </ul>
+  
 </li>
-<li>
-<a href="stu-MonthMark.html">نمرات ماهانه</a>
-
-
-</li>
-<li>
-<a href="#">مسابقات </a>
-
-
-</li>
-
-<li><a href="#">آزمون ها</a></li>
-<li><a href="/logout/">خروج</a></li>
+<li><a href="#">خروج</a></li>
 </ul>
 </div>
+
 </div>
 </div>
-<!----------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+
 <div class="content">
 
-<h2><span class="entypo-plus-squared redcolor"></span> امکانات</h2>
+<h2><span class="entypo-plus-squared redcolor"></span> تعیین کلاس</h2>
 
-<div class="feat">
-<img alt="lessons" src="/static/msiteapp/images/refresh.png" />
-<a  href="/student/{{ a }}/courses/"><h4>دروس</h4>
-<p>برای مشاهده دروس از این قسمت وارد شوید</p>
+<body dir="rtl">
+<form action="/teacher/showlist/" method="get">
+<table class="ordertable" cellspacing="0" cellpadding="0">
+
+
+<tbody>
+<tr>
+    <p>
+       <td class="big"><label id="label_class" title="شماره کلاس">شماره کلاس </label>&nbsp;
+        <input id="class_nom" type="text" name="class_no" /></td>
+    
+
+        <td class="big"><label id="label_sub" > عنوان درس </label>&nbsp;
+        <input id="lesson_sub" type="text" name="subject"/></td>
+    </p>
+    
+    <p>
+       <td class="big">  <label id="label_m_mark" >نمره از:</label>&nbsp;
+        <input id="max_mark" type="text" name="max_mark"/></td>
+    </p>
+
+    <p>
+       <td class="big">  <label id="year_rep" >سال :</label>&nbsp;
+        <input id="year" type="text" name="year"/></td>
+    </p>
+
+    <p>
+        <label id="label_report" title="ماه گزارش">ماه گزارش</label>&nbsp;
+        <select name="report_month">
+            <option selected="selected" disabled></option>
+            <option value="مهر">مهر</option>
+            <option value="آبان">آبان</option>
+            <option value="آذر">آذر</option>
+            <option value="دی">دی</option>
+            <option value="بهمن">بهمن</option>
+            <option value="اسفند">اسفند</option>
+            <option value="فروردین">فروردین</option>
+            <option value="اردیبهشت">اردیبهشت</option>
+            <option value="خرداد">خرداد</option>
+        </select>
+
+    </p>
+    <p>
+<br>
+</p> 
+  </tr>
+  
+ <tr>
+<td class="big"><h3></h3></td>
+<td class="big"></td>
+<td class="big"></td>
+
+    <p>
+      <td><input id="submit1" type="submit" value="مشاهده فرم"></td>
+      </tr>
+
+    </p>
+   
+</tbody>  
+  </table> 
+</form>
+</body>
 </div>
-
-<div class="feat">
-<img alt="mosabeghat" src="/static/msiteapp/images/monitor.png" />
-<a  href="#"><h4>مسابقات</h4>
-<p>برای مشاهده مسابقات از این قسمت وارد شوید</p>
-</div>
-
-<div class="feat">
-<img alt="exams" src="/static/msiteapp/images/clock.png" />
-<a  href="#"><h4>آزمون ها</h4>
-<p>برای شرکت در آزمون ها از این قسمت وارد شوید</p>
-</div>
-
-<div class="feat">
-<img alt="نمرات ماهانه" src="/static/msiteapp/images/refresh.png" />
-<a  href="/student/{{ a }}/karname"><h4>نمرات ماهانه</h4>
-<p>براي مشاهده نمرات ماهانه از اين قسمت وارد شويد</p>
-</div>
-
-
-</div>
-
-
 <div class="clear"></div>
 </div>
 
-<!---------------------------------------------------------------------------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------------------------------------->
+
 <div class="clear"></div>
 <div id="footer">
 

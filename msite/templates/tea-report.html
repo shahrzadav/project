@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>صفحه دبیر</title>
+<title>فرم وارد کردن نمرات</title>
 <meta name="keywords" content="مدرسه الکترونیکی" />
 <meta name="description" content="مدرسه الکترونیکی" />
 <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
@@ -11,16 +11,14 @@
 <link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="/static/msiteapp/js/jquery.min.js"></script>
 </head>
 
 <body>
-
-<script src="/static/msiteapp/js/jquery.min.js"></script>
-
 <div id="topmenu">
 <div class="middle">
 <ul>
-<li><a href="index.html/">صفحه نخست</a></li>
+<li><a href="index.html">صفحه نخست</a></li>
 <li><a href="hosting.html">درباره مدرسه</a></li>
 <li><a href=".html">گروه ها</a></li>
 <li><a href="n.html">امکانات سایت</a></li>
@@ -29,74 +27,128 @@
 <li><a href="contact.html">تماس با ما</a></li>
 </ul>
 <p style="color: red;font-size:16px;font-family: 'yekan';float:right;padding:7px;margin-right: 5px">شما در صفحه شخصیتان هستید. {{ a }}</p>
+</div>
 
+</div>
 
 <div class="middle">
 <div class="clear"></div>
 
 <div id="logo"></div>
-<div id="phone"><span class="entypo-phone"></span>021 - 88221982</div>
 
 
-<div class="clear"></div>
-<div class="slideshow nivoSlider theme-bar">
-<img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
-</div>
 
 <div class="clear"></div>
 <div id="sidebar">
-
-
 <div class="widget">
 <h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
 
-<ul>
-<li><a href="index.html">صفحه نخست</a></li>
-<li><a href="g.html">ارائه گزارش</a></li>
-<li><a href="r.html">پیام های والدین</a></li>
-<li><a href="n.html">مدیریت تکالیف</a></li>
-<li><a href="/logout/">خروج</a></li>
-
+<!------------------------------------------------------------------------------------------------------------------>
+<!-- بلاک اصلی -->
+<div id="vertical-nav">
+<!-- تگ ul سطح بالا -->
+<ul class="vertical-top-level">
+<!-- منوی سطح بالا -->
+<li>
+<a href="teacher.html">صفحه دبیر</a>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="tea-mainreport.html">ارائه گزارش </a>
+ 
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">پیام های والدین</a>
+    </li>
+ 
+<!-- منوی سطح بالا -->
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
+  </ul>
+  
+</li>
+<li><a href="#">خروج</a></li>
 </ul>
 </div>
 
-
 </div>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------>
 
 <div class="content">
 
 
-<h2><span class="entypo-plus-squared redcolor"></span> امکانات</h2>
+<form method="get" action = "/teacher/setmarks/">
+<input type="hidden" name="report_id" value={{report_id}} />
+    <input type="hidden" name="class_number" value={{class_number}}/>
+<center>
+<div>
 
-<div class="feat">
-<img alt="transfer" src="/static/msiteapp/images/refresh.png" />
-<a href="/teacher/{{a}}/gozaresh/"<h4>ارائه گزارش</h4>
-<p>برای ارائه گزارش از این قسمت وارد شوید</p>
+
+<table border="1" style="width:50%" dir="rtl" >
+<tr>
+    <th>نام</th>
+    <th>نام خانوادگی</th>
+    <th>نمره</th>
+</tr>
+{% for student in students  %}
+
+
+        <SCRIPT Language="JavaScript">
+            document.write('<tr>')
+        </SCRIPT>
+
+        {% for name in student %}
+            <!--{forloop.counter}}-->
+            {% ifequal forloop.counter 3 %}
+                <SCRIPT Language="JavaScript">
+                    document.write('<td>')
+                    document.write('<input name = {{ name }} type=text /></p>')
+                    document.write('</td>')
+                </SCRIPT>
+            {% else %}
+                <SCRIPT Language="JavaScript">
+                    document.write('<td>')
+                </SCRIPT>
+                {{ name }}
+                <SCRIPT Language="JavaScript">
+                    document.write('</td>')
+                </SCRIPT>
+
+            {% endifequal %}
+
+        {% endfor %}
+
+        <SCRIPT Language="JavaScript">
+            document.write('</tr>')
+        </SCRIPT>
+
+    <!--% endifequal %}-->
+
+{% endfor %}
+
+</table>
+<p></p>
+<p><input id="Submit1" type="submit" value="ثبت نمرات" /></p>
 </div>
+</center>
+</form>
 
-<div class="feat">
-<img alt="support" src="/static/msiteapp/images/monitor.png" />
-<h4>پیام های والدین</h4>
-<p>برای مشاهده پیام های والدین از این قسمت وارد شوید</p>
-</div>
-
-<div class="feat">
-<img alt="directadmin" src="/static/msiteapp/images/clock.png" />
-<h4>مدیریت تکالیف</h4>
-<p>برای مدیریت تکالیف از این قسمت وارد شوید</p>
-</div>
-
-
-
-</div>
-
-
-
-
+  
+  </div>
 <div class="clear"></div>
+
 </div>
+
+
+
+
+<!--------------------------------------------------------------------------------------------------------------->
+
 <div class="clear"></div>
 <div id="footer">
 
@@ -132,11 +184,7 @@
 </ul>
 </div>
 
-<div class="footerbox">
 
-
-
-</div>
 
 </div>
 

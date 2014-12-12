@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>صفحه دبیر</title>
+<title>مدیریت دروس</title>
 <meta name="keywords" content="مدرسه الکترونیکی" />
 <meta name="description" content="مدرسه الکترونیکی" />
 <link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
@@ -11,12 +11,10 @@
 <link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="js/jquery.min.js"></script>
 </head>
 
 <body>
-
-<script src="/static/msiteapp/js/jquery.min.js"></script>
-
 <div id="topmenu">
 <div class="middle">
 <ul>
@@ -28,38 +26,62 @@
 <li><a href="er/">افتخارات مدرسه</a></li>
 <li><a href="contact.html">تماس با ما</a></li>
 </ul>
-<p style="color: red;font-size:16px;font-family: 'yekan';float:right;padding:7px;margin-right: 5px">شما در صفحه شخصیتان هستید. {{ a }}</p>
 
+</div>
+
+</div>
 
 <div class="middle">
 <div class="clear"></div>
 
 <div id="logo"></div>
-<div id="phone"><span class="entypo-phone"></span>021 - 88221982</div>
 
 
-<div class="clear"></div>
-<div class="slideshow nivoSlider theme-bar">
-<img src="/static/msiteapp/slide/1.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/2.jpg" alt="مدرسه" />
-<img src="/static/msiteapp/slide/3.jpg" alt="مدرسه" />
-</div>
 
 <div class="clear"></div>
+
 <div id="sidebar">
 
 
 <div class="widget">
 <h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
 
-<ul>
-<li><a href="index.html">صفحه نخست</a></li>
-<li><a href="g.html">ارائه گزارش</a></li>
-<li><a href="r.html">پیام های والدین</a></li>
-<li><a href="n.html">مدیریت تکالیف</a></li>
-<li><a href="/logout/">خروج</a></li>
+<!----------------------------------------------------------------------------------------------------------------------------->
+<!-- بلاک اصلی -->
+<div id="vertical-nav">
+<!-- تگ ul سطح بالا -->
+<ul class="vertical-top-level">
+<!-- منوی سطح بالا -->
+<li>
+<a href="teacher.html">صفحه دبیر</a>
+</li>
 
+<li>
+<a href="#">ارائه گزارش &raquo;</a>
+  <ul class="vertical-sub-level">
+    <li><a href="#">گزارش کلاس 1</a></li>
+    <li><a href="#">گزارش کلاس 2</a></li>
+	<li><a href="#">گزارش کلاس 3</a></li>
+  </ul>
+</li>
+
+<li>
+<a href="#">پیام های والدین</a>
+    </li>
+  
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
+  </ul>
+  </li>
+<li><a href="#">خروج</a></li>
 </ul>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+
 </div>
 
 
@@ -68,27 +90,38 @@
 <div class="content">
 
 
-<h2><span class="entypo-plus-squared redcolor"></span> امکانات</h2>
 
-<div class="feat">
-<img alt="transfer" src="/static/msiteapp/images/refresh.png" />
-<a href="/teacher/{{a}}/gozaresh/"<h4>ارائه گزارش</h4>
-<p>برای ارائه گزارش از این قسمت وارد شوید</p>
-</div>
+<h2><span class="entypo-plus-squared redcolor"></span> تکالیف قرار داده شده</h2>
+
+<p>
+</p>
+
+<table class="ordertable" cellspacing="0" cellpadding="0">
+
+
+<tbody>
+<!--
+<td><a href="/takalif/class_no" {{ classnumber }} ></a></td>
+<td><a href="/takalif/sabtetaklif/{{ find_course }}" ></a></td>
+-->
+<td><a href="/takalif/aaaalaki/{{ classnumber }}/"></a></td>
+{% for i in name%}
+<tr>
+<td><a href="/{{classnumber}}/takalif/aaaalaki/" class="button-xsmall">{{ i }}</a></td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+
+<h2><span class="entypo-plus-squared redcolor"></span> ثبت تکلیف جدید</h2>
 
 <div class="feat">
 <img alt="support" src="/static/msiteapp/images/monitor.png" />
-<h4>پیام های والدین</h4>
-<p>برای مشاهده پیام های والدین از این قسمت وارد شوید</p>
+<a  href="/{{find_course}}/takalif/sabtetaklif/"><h4>ثبت تکلیف جدید</h4></a>
+<p>برای ایجاد تکلیف جدید از این قسمت وارد شوید</p>
 </div>
-
-<div class="feat">
-<img alt="directadmin" src="/static/msiteapp/images/clock.png" />
-<h4>مدیریت تکالیف</h4>
-<p>برای مدیریت تکالیف از این قسمت وارد شوید</p>
-</div>
-
-
 
 </div>
 
@@ -132,11 +165,7 @@
 </ul>
 </div>
 
-<div class="footerbox">
 
-
-
-</div>
 
 </div>
 
