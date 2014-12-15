@@ -618,3 +618,25 @@ def sabtetaklif(request, find_course):
 
 def sabtetaklifejadid(request):
     return render(request, 'tea-hw-compose.html')
+
+
+#def set_Hw_mark(request, class_no, find_student):
+    #stu_username = []
+#    for j in Student.objects.filter(class_no=int(class_no)):
+#            j.append(str(Student.student))
+#            for i in find_student:z
+#                grade=request.GET['i']
+
+
+
+
+
+
+
+
+    #if request.method == 'POST':
+    #    for i in find_student:
+     #       mark = int(request.GET['grade'])
+      #      homeworkgrades = HwAnswer(student=i, date=date.today(), mark=mark, )
+       #     homeworkgrades.save()
+    #return render_to_response('tea-hw-details.html')
