@@ -77,3 +77,46 @@ class HwAnswer(models.Model):
 
     def __str__(self):
         return '%s %s' % (str(self.student), str(self.homework))
+
+
+class Exam(models.Model):
+    course = models.ForeignKey(Course)
+    date_init = models.DateField(default=datetime.now)
+    date_end = models.DateField()
+
+    def __str__(self):
+        return '%s %s' % (str(self.course), str(self.id))
+
+
+class ExamQuestions(models.Model):
+    exam = models.ForeignKey(Exam)
+    question_no = models.IntegerField()
+    question = models.CharField()
+    first_choice = models.CharField()
+    second_choice = models.CharField()
+    third_choice = models.CharField()
+    forth_choice = models.CharField()
+    answer = models.IntegerField()
+
+    def __str__(self):
+        return '%s %s' % (str(self.question_no), str(self.question))
+
+
+class StudentAnswer(models.Model):
+    exam = models.ForeignKey(Exam)
+    student = models.ForeignKey(Student)
+    answer = models.IntegerField()
+    question_no = models.ForeignKey(ExamQuestions, to_field='question_no')
+
+    def __str__(self):
+        return '%s %s' % (str(self.student), str(self.answer))
+
+
+class ExamResult:
+    exam = models.ForeignKey(Exam)
+    student = models.ForeignKey(Student)
+    mark = models.IntegerField()
+    date = models.DateField(default=datetime.now)
+
+    def __str__(self):
+        return '%s %s %s' % (str(self.exam), str(self.student), str(self.mark))
