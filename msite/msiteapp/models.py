@@ -90,12 +90,12 @@ class Exam(models.Model):
 
 class ExamQuestions(models.Model):
     exam = models.ForeignKey(Exam)
-    question_no = models.IntegerField()
-    question = models.CharField()
-    first_choice = models.CharField()
-    second_choice = models.CharField()
-    third_choice = models.CharField()
-    forth_choice = models.CharField()
+    question_no = models.IntegerField(unique=True)
+    question = models.TextField()
+    first_choice = models.CharField(max_length=60)
+    second_choice = models.CharField(max_length=60)
+    third_choice = models.CharField(max_length=60)
+    forth_choice = models.CharField(max_length=60)
     answer = models.IntegerField()
 
     def __str__(self):
@@ -112,7 +112,7 @@ class StudentAnswer(models.Model):
         return '%s %s' % (str(self.student), str(self.answer))
 
 
-class ExamResult:
+class ExamResult(models.Model):
     exam = models.ForeignKey(Exam)
     student = models.ForeignKey(Student)
     mark = models.IntegerField()
@@ -120,3 +120,26 @@ class ExamResult:
 
     def __str__(self):
         return '%s %s %s' % (str(self.exam), str(self.student), str(self.mark))
+
+
+class Question(models.Model):
+    topic = models.CharField(max_length=20)
+    student = models.ForeignKey(Student)
+    year = models.IntegerField()
+    month = models.IntegerField()
+    day = models.IntegerField()
+    question_txt = models.TextField()
+    course = models.ForeignKey(Course)
+
+    def __str__(self):
+        return '%s' % str(self.question_txt)
+
+
+class QuestionAnswer(models.Model):
+    question = models.ForeignKey(Question)
+    user = models.ForeignKey(User)
+    answer_date = models.DateField(default=datetime.now)
+    answer_txt = models.TextField()
+
+    def __str__(self):
+        return '%s' % str(self.answer_txt)
