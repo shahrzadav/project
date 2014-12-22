@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from msiteapp.models import User, Class, Student, Parent, Course, EducationReport, Marks, HomeWorks
+from msiteapp.models import Class, Student, Parent, Course, EducationReport, Marks, HomeWorks
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from msite.forms import ModelFormWithFileField
@@ -14,7 +14,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from datetime import date
 
-################################################ login & logout #############################################################
+################################################ login & logout ################################################
 
 
 def login_user(request):
@@ -55,19 +55,23 @@ def login_user(request):
 
                             if part == 'pa':
                                 template = loader.get_template('parent.html')
-                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance, "user_pass_error": user_pass_error})
+                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance,
+                                                                   "user_pass_error": user_pass_error})
                                 return HttpResponse(template.render(context))
                             elif part == 'st':
                                 template = loader.get_template('student.html')
-                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance, "user_pass_error": user_pass_error})
+                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance,
+                                                                   "user_pass_error": user_pass_error})
                                 return HttpResponse(template.render(context))
                             elif part == 'te':
                                 template = loader.get_template('teacher.html')
-                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance, "user_pass_error": user_pass_error})
+                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance,
+                                                                   "user_pass_error": user_pass_error})
                                 return HttpResponse(template.render(context))
                             elif part == 'ad':
                                 template = loader.get_template('adviser.html')
-                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance, "user_pass_error": user_pass_error})
+                                context = RequestContext(request, {"sub": sub, "a": a, "entrance": entrance,
+                                                                   "user_pass_error": user_pass_error})
                                 return HttpResponse(template.render(context))
                         else:
                             pass
@@ -89,7 +93,7 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/home/')
 
-##############################################grades report for student#####################################################
+##############################################grades report for student############################################
 
 
 def report_st(request, a):
@@ -120,12 +124,8 @@ def report_st_mehr(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -161,12 +161,8 @@ def report_st_aban(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -179,7 +175,6 @@ def report_st_aban(request, a):
     template = loader.get_template('st_grades_aban.html')
     context = RequestContext(request, {'xx': st_list})
     return HttpResponse(template.render(context))
-
 
 
 def report_st_azar(request, a):
@@ -203,12 +198,8 @@ def report_st_azar(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -221,7 +212,6 @@ def report_st_azar(request, a):
     template = loader.get_template('st_grades_azar.html')
     context = RequestContext(request, {'xx': st_list})
     return HttpResponse(template.render(context))
-
 
 
 def report_st_dey(request, a):
@@ -245,12 +235,8 @@ def report_st_dey(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -286,12 +272,8 @@ def report_st_bahman(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -327,12 +309,8 @@ def report_st_esfand(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -368,12 +346,8 @@ def report_st_farvardin(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -409,12 +383,8 @@ def report_st_ordibehesht(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -450,12 +420,8 @@ def report_st_khordad(request, a):
     st_list_tmp = []
 
     for i in range(j):
-        st_sub_list = []
-        st_sub_list.append(st_report_topic[i])
-        st_sub_list.append(st_course_id[i][:len(st_course_id[i])-3])
-        st_sub_list.append(st_base_mark[i])
-        st_sub_list.append(str(st_mark_val[i]))
-        st_sub_list.append(st_description[i])
+        st_sub_list = [st_report_topic[i], st_course_id[i][:len(st_course_id[i]) - 3], st_base_mark[i],
+                       str(st_mark_val[i]), st_description[i]]
         st_list_tmp.append(st_sub_list)
 
     st_list = []
@@ -478,16 +444,14 @@ def st_courses(request, a):
     class_no = stu.class_no
     courses = Course.objects.filter(class_no=class_no)
 
-
     template = loader.get_template('stu-lessons-list.html')
     context = RequestContext(request, {'a': a, 'st_course_list': courses})
     return HttpResponse(template.render(context))
 
-
 ###########################################vared kardane nomarat tavasote teacher #################################
 
 
-def which_class(request,a):
+def which_class(a):
 
     return render_to_response('tea-mainreport.html', {'a': a})
 
@@ -552,6 +516,7 @@ def set_marks(request):
     return render_to_response('tea-mainreport.html')
 #########################################################################shahrzad
 
+
 def upload_file(request):
     if request.method == 'POST':
         form = forms.ModelFormWithFileField(request.FILES)
@@ -567,7 +532,7 @@ def upload_file(request):
 def enter_hw_page(request):
     find = []
     if 'grade2' in request.POST and request.POST['grade2']:
-        sub = True
+
         grade2 = request.POST['grade2']
         grade3 = request.POST['grade3']
         find_course = Course.objects.get(subject=grade2, class_no=grade3)
@@ -575,7 +540,8 @@ def enter_hw_page(request):
         for i in HomeWorks.objects.filter(course=find_course):
             find.append(str(i.topic))
 
-        return render_to_response('tea-hw-management.html', {'name': find, 'classnumber': grade3, 'find_course': find_course})
+        return render_to_response('tea-hw-management.html', {'name': find, 'classnumber': grade3,
+                                                             'find_course': find_course})
 
     return render(request, 'tea-class-selection.html')
 
@@ -586,7 +552,7 @@ def takliftopic(request):
     return render(request, 'tea-hw-details.html')
 
 
-def taklifstudent(request, classnumber):
+def taklifstudent(classnumber):
     #if 'classnumber' in request.GET:
      #   class_no = request.POST.get['classnumber']
         find_student = []
@@ -604,7 +570,7 @@ def sabtetaklif(request, find_course):
         form = forms.ModelFormWithFileField(request.FILES)
         if form.is_valid():
             if 'upload' in request.POST:
-                sub = True
+
                 upload = request.POST['upload']
                 m = HomeWorks(course=find_course, topic=upload, date='07/08/1393', q_file=form)
                 # file is saved
