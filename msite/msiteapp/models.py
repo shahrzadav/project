@@ -102,7 +102,7 @@ class ExamQuestions(models.Model):
         return '%s %s' % (str(self.question_no), str(self.question))
 
 
-class StudentAnswer(models.Model):
+class ExamStudentAnswer(models.Model):
     exam = models.ForeignKey(Exam)
     student = models.ForeignKey(Student)
     answer = models.IntegerField()
