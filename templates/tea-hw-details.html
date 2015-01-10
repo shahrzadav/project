@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>جزئیات تکلیف</title>
+<meta name="keywords" content="مدرسه الکترونیکی" />
+<meta name="description" content="مدرسه الکترونیکی" />
+<link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="/static/msiteapp/js/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="topmenu">
+<div class="middle">
+<ul>
+<li><a href="index.html/">صفحه نخست</a></li>
+<li><a href="hog.html">درباره مدرسه</a></li>
+<li><a href=".html">گروه ها</a></li>
+<li><a href="n.html">امکانات سایت</a></li>
+<li><a href="gn.html">اخبارمدرسه</a></li>
+<li><a href="er/">افتخارات مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="middle">
+<div class="clear"></div>
+
+<div id="logo"></div>
+
+
+<div class="clear"></div>
+<div id="sidebar">
+
+
+<div class="widget">
+<h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+<!-- بلاک اصلی -->
+<div id="vertical-nav">
+<!-- تگ ul سطح بالا -->
+<ul class="vertical-top-level">
+<!-- منوی سطح بالا -->
+<li>
+<a href="teacher.html">صفحه دبیر</a>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">ارائه گزارش &raquo;</a>
+  <ul class="vertical-sub-level">
+    <li><a href="#">گزارش کلاس 1</a></li>
+    <li><a href="#">گزارش کلاس 2</a></li>
+	<li><a href="#">گزارش کلاس 3</a></li>
+  </ul>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">پیام های والدین</a>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
+  </ul>
+</li>
+<li><a href="#">خروج</a></li>
+</ul>
+</div>
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+
+</div>
+
+
+</div>
+
+<div class="content">
+
+
+<h2><span class="entypo-plus-squared redcolor"></span> جزئیات تکلیف</h2>
+
+<p>
+</p>
+
+<table class="ordertable" cellspacing="0" cellpadding="0">
+
+
+<tbody>
+<td><a href="/{{ class_no }}/takalif/aleki/" ></a></td>
+<td><a href="/{{ find_student }}/takalif/aleki2/" ></a></td>
+{%for i in find_student%}
+<tr>
+<!--<td><a href="/{{classnumber}}/takalif/aaaalaki/" class="button-xsmall">{{ i }}</a></td>-->
+<td class="big"><h3>{{ i }}</h3></td>
+<td><a href="" class="button-xsmall">دانلود تکلیف</a></td>
+<td class="big"><h3>نمره</h3><input type = "text" name={{ i }}>
+</td>
+{% endfor %}
+
+<tr>
+<td class="big"><h3></h3></td>
+<td class="big"></td>
+<td><a href="/takalif/sabtenomre/" class="button-xsmall">ثبت نمرات</a></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+
+
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+
+<div class="middle">
+<div class="firstbox">
+<p>تمامی حقوق برای مدرسه محفوظ است.<br/>
+هر گونه کپی برداری از قالب پیگرد دارد.</p>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="index.html">صفحه نخست</a></li>
+<li><a href="ng.html">درباره مدرسه</a></li>
+<li><a href="er.html">اخبار</a></li>
+<li><a href="n.html">ورود کاربران</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="wn.html">گروه ها</a></li>
+<li><a href="ps.html">افتخارات مدرسه</a></li>
+<li><a href="po.html">آدرس</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="user/login.php">ورود کاربران</a></li>
+<li><a href="user/register.php">عضویت در سامانه</a></li>
+<li><a href="terms.html">قوانین مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+
+
+
+</div>
+
+</div>
+	<script src="/static/msiteapp/js/jquery.custombox.js"></script>
+    <script type="text/javascript" src="/static/msiteapp/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('.slideshow').nivoSlider();
+    });
+	
+    </script>
+    
+    <script>
+$('#example1').on('click', function () {
+    $.fn.custombox( this, {
+        overlay: true,
+        effect: 'slit'
+    });
+    return false;
+});
+</script>
+
+</body>
+<link rel="canonical" href="http://www...ir" />
+</html>

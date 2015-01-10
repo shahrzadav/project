@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>صفحه گزارشات معلم</title>
+<meta name="keywords" content="مدرسه الکترونیکی" />
+<meta name="description" content="مدرسه الکترونیکی" />
+<link rel="stylesheet" href="/static/msiteapp/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/icons.css" type="text/css" />
+<link rel="stylesheet" href="/static/msiteapp/css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/msiteapp/css/custombox.css" type="text/css" />
+<script src="/static/msiteapp/js/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="topmenu">
+<div class="middle">
+<ul>
+<li><a href="index.html">صفحه نخست</a></li>
+<li><a href="hosting.html">درباره مدرسه</a></li>
+<li><a href=".html">گروه ها</a></li>
+<li><a href="n.html">امکانات سایت</a></li>
+<li><a href="gn.html">اخبارمدرسه</a></li>
+<li><a href="er/">افتخارات مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+<p style="color: red;font-size:16px;font-family: 'yekan';float:right;padding:7px;margin-right: 5px">شما در صفحه شخصیتان هستید. {{ a }}</p>
+</div>
+
+</div>
+
+<div class="middle">
+<div class="clear"></div>
+
+<div id="logo"></div>
+
+
+
+<div class="clear"></div>
+<div id="sidebar">
+<div class="widget">
+<h2><span class="entypo-layout bluecolor"></span>منوی دبیر</h2>
+
+<!------------------------------------------------------------------------------------------------------------------>
+<!-- بلاک اصلی -->
+<div id="vertical-nav">
+<!-- تگ ul سطح بالا -->
+<ul class="vertical-top-level">
+<!-- منوی سطح بالا -->
+<li>
+<a href="teacher.html">صفحه دبیر</a>
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="tea-mainreport.html">ارائه گزارش </a>
+ 
+</li>
+<!-- منوی سطح بالا -->
+<li>
+<a href="#">پیام های والدین</a>
+    </li>
+ 
+<!-- منوی سطح بالا -->
+<li>
+<a>مدیریت تکالیف &raquo;</a>
+ <ul class="vertical-sub-level">
+    <li><a href="tea-class-selection.html">تعیین کلاس</a></li>
+  </ul>
+  
+</li>
+<li><a href="#">خروج</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+
+<div class="content">
+
+<h2><span class="entypo-plus-squared redcolor"></span> تعیین کلاس</h2>
+
+<body dir="rtl">
+<form action="/teacher/showlist/" method="get">
+<table class="ordertable" cellspacing="0" cellpadding="0">
+
+
+<tbody>
+<tr>
+    <p>
+       <td class="big"><label id="label_class" title="شماره کلاس">شماره کلاس </label>&nbsp;
+        <input id="class_nom" type="text" name="class_no" /></td>
+    
+
+        <td class="big"><label id="label_sub" > عنوان درس </label>&nbsp;
+        <input id="lesson_sub" type="text" name="subject"/></td>
+    </p>
+    
+    <p>
+       <td class="big">  <label id="label_m_mark" >نمره از:</label>&nbsp;
+        <input id="max_mark" type="text" name="max_mark"/></td>
+    </p>
+
+    <p>
+       <td class="big">  <label id="year_rep" >سال :</label>&nbsp;
+        <input id="year" type="text" name="year"/></td>
+    </p>
+
+    <p>
+        <label id="label_report" title="ماه گزارش">ماه گزارش</label>&nbsp;
+        <select name="report_month">
+            <option selected="selected" disabled></option>
+            <option value="مهر">مهر</option>
+            <option value="آبان">آبان</option>
+            <option value="آذر">آذر</option>
+            <option value="دی">دی</option>
+            <option value="بهمن">بهمن</option>
+            <option value="اسفند">اسفند</option>
+            <option value="فروردین">فروردین</option>
+            <option value="اردیبهشت">اردیبهشت</option>
+            <option value="خرداد">خرداد</option>
+        </select>
+
+    </p>
+    <p>
+<br>
+</p> 
+  </tr>
+  
+ <tr>
+<td class="big"><h3></h3></td>
+<td class="big"></td>
+<td class="big"></td>
+
+    <p>
+      <td><input id="submit1" type="submit" value="مشاهده فرم"></td>
+      </tr>
+
+    </p>
+   
+</tbody>  
+  </table> 
+</form>
+</body>
+</div>
+<div class="clear"></div>
+</div>
+
+
+
+<!--------------------------------------------------------------------------------------------------------------->
+
+<div class="clear"></div>
+<div id="footer">
+
+<div class="middle">
+<div class="firstbox">
+<p>تمامی حقوق برای مدرسه محفوظ است.<br/>
+هر گونه کپی برداری از قالب پیگرد دارد.</p>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="index.html">صفحه نخست</a></li>
+<li><a href="ng.html">درباره مدرسه</a></li>
+<li><a href="er.html">اخبار</a></li>
+<li><a href="n.html">ورود کاربران</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="wn.html">گروه ها</a></li>
+<li><a href="ps.html">افتخارات مدرسه</a></li>
+<li><a href="po.html">آدرس</a></li>
+</ul>
+</div>
+
+<div class="footerbox">
+<ul>
+<li><a href="user/login.php">ورود کاربران</a></li>
+<li><a href="user/register.php">عضویت در سامانه</a></li>
+<li><a href="terms.html">قوانین مدرسه</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+
+
+
+</div>
+
+</div>
+	<script src="/static/msiteapp/js/jquery.custombox.js"></script>
+    <script type="text/javascript" src="/static/msiteapp/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('.slideshow').nivoSlider();
+    });
+	
+    </script>
+    
+    <script>
+$('#example1').on('click', function () {
+    $.fn.custombox( this, {
+        overlay: true,
+        effect: 'slit'
+    });
+    return false;
+});
+</script>
+
+</body>
+<link rel="canonical" href="http://www...ir" />
+</html>
